@@ -42,29 +42,29 @@ const Form = () => {
 
     return (
         <Container>
-            {isLoading ? (
-                <Spinner />
-            ) : (
-                <>
-                    <Input
-                        type="text"
-                        placeholder="Enter encrypted message"
-                        value={encryptedMessage}
-                        onChange={(e) => setEncryptedMessage(e.target.value)}
-                        maxLength={200}
-                    />
-                    <Button
-                        id="decryptButton"
-                        onClick={handleSubmit}
-                        disabled={isInputEmpty}
-                        isInputEmpty={isInputEmpty}
-                    >
-                        Decrypt
-                    </Button>
-                </>
+            <>
+                <Input
+                    type="text"
+                    placeholder="Enter encrypted message"
+                    value={encryptedMessage}
+                    onChange={(e) => setEncryptedMessage(e.target.value)}
+                    maxLength={200}
+                />
+                <Button
+                    id="decryptButton"
+                    onClick={handleSubmit}
+                    disabled={isInputEmpty}
+                    isInputEmpty={isInputEmpty}
+                >
+                    Decrypt
+                </Button>
+            </>
+
+            {isLoading && <Spinner style={{ marginTop: '30px' }} />}
+            {!isLoading && errorMessage && (
+                <ErrorMessage>{errorMessage}</ErrorMessage>
             )}
-            {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
-            {!errorMessage && !isLoading && decryptedMessage && (
+            {!isLoading && !errorMessage && decryptedMessage && (
                 <StyledPre>
                     {JSON.stringify(decryptedMessage, null, 4)}
                 </StyledPre>

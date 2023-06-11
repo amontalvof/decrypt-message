@@ -33,7 +33,7 @@ describe('decrypt spec', () => {
                 errors: { message: { msg: 'The message is not valid.' } },
             },
         }).as('mockedAPI2');
-        cy.get('input').type('John000Doe000123');
+        cy.get('input').type('John000Doe');
         cy.get('button').click();
         cy.wait('@mockedAPI2');
         cy.get('p').should('have.text', 'The message is not valid.');

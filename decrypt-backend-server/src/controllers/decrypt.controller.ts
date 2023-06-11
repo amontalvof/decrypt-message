@@ -20,7 +20,7 @@ export const decryptMessage = async (
             message: { first_name, last_name, id },
         });
     } catch (error) {
-        console.error(error);
+        // console.error(error);
         res.status(500).json({
             ok: false,
             errors: {

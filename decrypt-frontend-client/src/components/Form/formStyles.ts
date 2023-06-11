@@ -46,8 +46,10 @@ export const Button = styled.button<{ isInputEmpty: boolean }>`
 export const StyledPre = styled.pre`
     font-size: 16px;
     color: ${mediumWhite};
+    margin-top: 30px;
 `;
 
 export const ErrorMessage = styled.p`
     color: ${crimson};
+    margin-top: 30px;
 `;
